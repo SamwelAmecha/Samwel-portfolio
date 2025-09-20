@@ -1,0 +1,107 @@
+// PROJECT: samwel-portfolio (Vite + React + Tailwind)
+// Updated: Added LinkedIn link in Contact section
+
+// ---------- package.json ----------
+{
+  "name": "samwel-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview --port 4173",
+    "deploy": "gh-pages -d dist"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.14.1",
+    "recharts": "^2.5.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.0.0",
+    "autoprefixer": "^10.4.13",
+    "gh-pages": "^5.0.0",
+    "postcss": "^8.4.21",
+    "tailwindcss": "^3.4.7",
+    "vite": "^5.3.0"
+  }
+}
+
+// ---------- vite.config.js ----------
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+
+export default defineConfig({
+  plugins: [react()],
+  base: '/samwel-portfolio/' // change if repo name differs
+})
+
+// ---------- src/data/portfolio.json ----------
+{
+  "name": "SA",
+  "display": "SA",
+  "tagline": "Strategic operator & leader — driving product-led growth, operational rigor, and market scale.",
+  "email": "amecha.samwel@yahoo.com",
+  "whatsapp": "+254703139972",
+  "linkedin": "https://www.linkedin.com/in/samwel-amecha",
+  "customDomain": "samwelamecha.com",
+  "caseStudies": [
+    {
+      "title": "Senegal: Portfolio Stabilization & NPL Reduction",
+      "challenge": "High non-performing loans in digital portfolio threatened profitability.",
+      "action": "Implemented data-driven underwriting refinements, dynamic credit terms, and targeted collection campaigns. Rolled out portfolio segmentation and prioritized capital to higher-performing cohorts.",
+      "impact": "Reduced Senegal NPLs from 7% to 4% and improved recovery rates."
+    },
+    {
+      "title": "Pan-Africa Product Scale: BNPL & SME Loans",
+      "challenge": "Launching scalable digital lending products across varied regulatory and telco ecosystems.",
+      "action": "Designed localized go-to-market playbooks, partnered with telco/mobile money platforms, and deployed automated underwriting and collection flows.",
+      "impact": "Launched BNPL, Merchant & SME loans across multiple markets, contributing to 10% revenue uplift at I&M."
+    },
+    {
+      "title": "Digital Lending Product & Process Digitization",
+      "challenge": "Manual underwriting and collections hampered growth and accuracy.",
+      "action": "Digitized credit underwriting and collections systems; introduced predictive scoring and stress-testing processes.",
+      "impact": "Faster decisioning, improved model accuracy, and operational efficiency gains."
+    }
+  ],
+  "testimonials": [
+    {
+      "author": "Horace Onyango",
+      "role": "TV & Film Production / Digital Communications",
+      "text": "He is a top professional."
+    },
+    {
+      "author": "Alex Livingstone Ongwen",
+      "role": "Operational Resilience & Integration",
+      "text": "Samwel is a dedicated, focused and hardworking team player. We worked with him to deliver digital loans for Faulu Bank. I would highly recommend him for role in credit in particular digital scoring formulation and risk evaluation."
+    },
+    {
+      "author": "Melinni Pillay",
+      "role": "Credit Risk Analyst",
+      "text": "During my engagements with Samwel, I have found him to be someone who is a critical thinker. He is well knowledged in his area of expertise... I will definitely recommend Samwel for any role he sets his sights on."
+    },
+    {
+      "author": "Brian Herbert",
+      "role": "Commercial Operations",
+      "text": "He is a critical and an analytical thinker with vast knowledge in the finance industry. He has demonstrated leadership and coaching skills which make a perfect fit for any leadership position."
+    }
+  ]
+}
+
+// ---------- src/components/Contact.jsx ----------
+import React from 'react'
+export default function Contact({email, whatsapp}){
+  return (
+    <section className="mt-12 mb-24">
+      <h2 className="text-2xl font-bold mb-4">Contact</h2>
+      <p>Email: <a href={`mailto:${email}`} className="text-sky-700">{email}</a></p>
+      <p className="mt-2">WhatsApp: <a href={`https://wa.me/${whatsapp.replace(/\+/g,'')}`} className="text-sky-700">{whatsapp}</a></p>
+      <p className="mt-2">LinkedIn: <a href="https://www.linkedin.com/in/samwel-amecha" target="_blank" rel="noopener noreferrer" className="text-sky-700">linkedin.com/in/samwel-amecha</a></p>
+      <p className="mt-4 text-sm text-slate-600">Available to relocate. Eligible for EU Blue Card based on qualifications & experience.</p>
+    </section>
+  )
+}
+
+// ---------- end of relevant updates ----------
